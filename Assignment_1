@@ -1,0 +1,27 @@
+Que.1 What is the difference between the “DELETE” and “TRUNCATE” commands? 
+1. The DELETE command is used to remove rows from a table based on a WHERE condition whereas TRUNCATE removes all rows from a table. 
+2. So we can use a where clause with DELETE to filter and delete specific records whereas we cannot use a Where clause with TRUNCATE. 
+3. DELETE is executed using a row lock, each row in the table is locked for deletion whereas TRUNCATE is executed using a table lock and the entire table is locked for removal of all records.
+ 4. DELETE is a DML command whereas TRUNCATE is a DDL command. 
+5. DELETE retains the identity of the column value whereas in TRUNCATE, the Identify column is reset to its seed value if the table contains any identity column. 
+6. To use Delete you need DELETE permission on the table whereas to use Truncate on a table you need at least ALTER permission on the table.
+ 7. DELETE uses more transaction space than the TRUNCATE statement whereas Truncate uses less transaction space than DELETE statement.
+ 8. DELETE can be used with indexed views whereas TRUNCATE cannot be used with indexed views. 
+9. The DELETE statement removes rows one at a time and records an entry in the transaction log for each deleted row whereas TRUNCATE TABLE removes the data by deallocating the data pages used to store the table data and records only the page deallocations in the transaction log. 
+10. Delete activates a trigger because the operation is logged individually whereas TRUNCATE TABLE can't activate a trigger because the operation does not log individual row deletions. 
+
+Que2. What is an Alias in SQL? 
+An alias is a feature of SQL that is supported by most, if not all, RDBMSs. It is a temporary name assigned to the table or table column for the purpose of a particular SQL query. In addition, aliasing can be employed as an obfuscation technique to secure the real names of database fields. A table alias is also called a correlation name . An alias is represented explicitly by the AS keyword but in some cases the same can be performed without it as well. Nevertheless, using the AS keyword is always a good practice.  Example -SELECT A.emp_name AS "Employee" B.emp_name AS "Supervisor" FROM employee A, employee WHERE A.emp_sup = B.emp_id;
+
+Que.3 . How do you display even rows of the any table?
+select * from worker where MOD (WORKER_ID, 2) = 0;
+ Que.4 How can you remove duplicates from a table(distinct and other way)
+
+Select distinct colun_name from tablename;
+Que.5 write a sql query to find 5th highest salary ?
+Select Distinct column_name FROM table_name ORDER BY column_name DESC LIMIT 4,1;
+Select distinct salary from employees e1 where 4 = (select count(distinct salary) from employees e2 where e2.salary >= e1.salary) ;
+
+
+
+
